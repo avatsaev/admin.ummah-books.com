@@ -1,6 +1,6 @@
-import { browser, element, by } from 'protractor/globals';
+import { browser, element, by } from 'protractor';
 
-export class Ng2AdminLtePage {
+export class Admin.UmmahBooks.Com.NgPage {
   navigateTo() {
     return browser.get('/');
   }

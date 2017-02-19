@@ -1,10 +1,10 @@
-import { Ng2AdminLtePage } from './app.po';
+import { Admin.UmmahBooks.Com.NgPage } from './app.po';
 
-describe('ng2-admin-lte App', function() {
-  let page: Ng2AdminLtePage;
+describe('admin.ummah-books.com.ng App', () => {
+  let page: Admin.UmmahBooks.Com.NgPage;
 
   beforeEach(() => {
-    page = new Ng2AdminLtePage();
+    page = new Admin.UmmahBooks.Com.NgPage();
   });
 
   it('should display message saying app works', () => {
