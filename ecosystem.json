@@ -1,0 +1,35 @@
+{
+
+  "apps": [
+    {
+      "name": "com.ummah-books.admin",
+      "script": "",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+
+  "deploy": {
+    "production": {
+      "user": "ops",
+      "host": [
+        "139.59.129.235"
+      ],
+      "ref": "origin/master",
+      "repo": "git@github.com:avatsaev/admin.ummah-books.com.git",
+      "path": "/home/ops/www/admin.ummah-books.com",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "pre-setup": "",
+      "post-setup": "ls -la",
+      "pre-deploy-local": "",
+      "post-deploy": "yarn && ng build --prod --aot",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
