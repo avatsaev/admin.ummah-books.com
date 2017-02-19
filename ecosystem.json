@@ -26,7 +26,7 @@
       "pre-setup": "",
       "post-setup": "ls -la",
       "pre-deploy-local": "ng build --prod --aot",
-      "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production",
+      "post-deploy": "yarn && pm2 startOrRestart ecosystem.json --env production",
       "env": {
         "NODE_ENV": "production"
       }
