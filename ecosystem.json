@@ -23,9 +23,9 @@
       "repo": "git@github.com:avatsaev/admin.ummah-books.com.git",
       "path": "/home/ops/www/admin.ummah-books.com",
       "ssh_options": "StrictHostKeyChecking=no",
-      "pre-setup": "ng build --prod --aot",
+      "pre-setup": "",
       "post-setup": "ls -la",
-      "pre-deploy-local": "",
+      "pre-deploy-local": "ng build --prod --aot",
       "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production",
       "env": {
         "NODE_ENV": "production"
