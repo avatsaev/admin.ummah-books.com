@@ -7,11 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
 
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
-import { environment } from '../environments/environment';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+import { AppRoutingModule } from "./app-routing.module";
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateStaticLoader } from 'ng2-translate';
 
 export function createTranslateLoader( http: Http ) {
-    return new TranslateStaticLoader( http, '../public/assets/i18n', '.json' );
+    return new TranslateStaticLoader(
+        http,
+        '../public/assets/i18n',
+        '.json'
+    );
 }
 
 let modules = [
@@ -26,13 +33,12 @@ let modules = [
         provide: TranslateLoader,
         useFactory: (createTranslateLoader)
     }),
-    ToasterModule
+    ToasterModule,
+    AppRoutingModule
 ];
 
 import { AppComponent } from './app.component';
-
 import { AppHeaderComponent } from './widgets/app-header';
-
 import { MenuAsideComponent } from './widgets/menu-aside';
 import { ControlSidebarComponent } from './widgets/control-sidebar';
 import { MessagesBoxComponent } from './widgets/messages-box';
@@ -61,6 +67,7 @@ import { NotificationService } from './services/notification.service';
 import { BreadcrumbService } from './services/breadcrumb.service';
 import { AdminLTETranslateService } from './services/translate.service';
 import { LoggerService } from './services/logger.service';
+import { Angular2TokenService } from 'angular2-token';
 
 let services = [
     UserService,
@@ -69,19 +76,20 @@ let services = [
     CanActivateGuard,
     NotificationService,
     AdminLTETranslateService,
-    LoggerService
+    LoggerService,
+    Angular2TokenService
 ];
 
 import { HomeComponent } from './pages/home/home.component';
-import {AppRoutingModule} from "./app-routing.module";
-
+import { LoginComponent } from './pages/login/login.component';
 import {
     BookFormComponent,
     BookEditComponent,
     BookNewComponent,
     BookDetailsComponent,
-    BookListComponent
-} from './pages/books/';
+    BookListComponent } from './pages/books/';
+
+
 
 
 let pages = [
@@ -91,6 +99,7 @@ let pages = [
     BookNewComponent,
     BookEditComponent,
     BookFormComponent,
+    LoginComponent,
 ];
 
 // main bootstrap
@@ -100,11 +109,10 @@ let pages = [
     bootstrap: [AppComponent],
     declarations: [
         ...widgets,
-        ...pages,
+        ...pages
     ],
     imports: [
-        ...modules,
-        AppRoutingModule
+        ...modules
     ],
     providers: [
         ...services

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
+import {Angular2TokenService} from "angular2-token";
 
 @Component( {
     selector: 'app-header',
@@ -8,7 +9,23 @@ import { TranslateService } from 'ng2-translate';
 })
 export class AppHeaderComponent {
 
-  constructor() {
+  constructor(protected authService:Angular2TokenService) {
     // TODO
+  }
+
+  loginUser(){
+    this.authService.signIn({
+      email: 'root@example.com',
+      password: "monkey67"
+    }).subscribe(
+        res => {
+          console.log("login result ", res);
+        },
+
+        err => {
+          console.error("login fail: ", err);
+        }
+
+    );
   }
 }
