@@ -77,29 +77,29 @@ export class AppComponent implements OnInit {
                 'link': ['/books'],
               }
             ]
-          },
-
-          {
-            'title': 'Sub menu',
-            'icon': 'link',
-            'sublinks': [
-              {
-                'title': 'Page 2',
-                'link': ['/page/2'],
-              },
-              {
-                'title': 'Page 3',
-                'link': ['/page/3'],
-              }
-            ]
-          },
-          {
-            'title': 'External Link',
-            'icon': 'google',
-            'link': ['http://google.com'],
-            'external': true,
-            'target': '_blank'
           }
+
+          // {
+          //   'title': 'Sub menu',
+          //   'icon': 'link',
+          //   'sublinks': [
+          //     {
+          //       'title': 'Page 2',
+          //       'link': ['/page/2'],
+          //     },
+          //     {
+          //       'title': 'Page 3',
+          //       'link': ['/page/3'],
+          //     }
+          //   ]
+          // },
+          // {
+          //   'title': 'External Link',
+          //   'icon': 'google',
+          //   'link': ['http://google.com'],
+          //   'external': true,
+          //   'target': '_blank'
+          // }
         ];
 
         // sending a test message
