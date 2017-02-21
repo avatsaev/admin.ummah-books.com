@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { TranslateService } from 'ng2-translate';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {Angular2TokenService} from "angular2-token";
+
 
 @Component( {
     selector: 'app-header',
@@ -9,23 +10,17 @@ import {Angular2TokenService} from "angular2-token";
 })
 export class AppHeaderComponent {
 
-  constructor(protected authService:Angular2TokenService) {
+  constructor(protected authService:Angular2TokenService, protected router:Router) {
     // TODO
   }
 
-  loginUser(){
-    this.authService.signIn({
-      email: 'root@example.com',
-      password: "monkey67"
-    }).subscribe(
-        res => {
-          console.log("login result ", res);
-        },
 
-        err => {
-          console.error("login fail: ", err);
-        }
+  onLogout(){
+    this.authService.signOut().subscribe( (res) => {
 
-    );
+      if(res.status == 200) this.router.navigate(['/login'])
+
+    });
   }
+
 }

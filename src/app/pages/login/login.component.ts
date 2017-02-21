@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Router} from '@angular/router'
+import {Angular2TokenService} from "angular2-token";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('loginForm') loginFrom:NgForm;
+
+  constructor(
+      protected authService:Angular2TokenService,
+      protected router:Router) {}
 
   ngOnInit() {
+    if(this.authService.userSignedIn()) this.router.navigate(['/books'])
+  }
+
+  onLogin(){
+    let user = {
+      email:  this.loginFrom.controls['email'].value,
+      password:  this.loginFrom.controls['password'].value
+    };
+
+
+    this.authService.signIn(user).subscribe(
+        res => {
+          console.log("login result ", res);
+          if(res.status == 200){
+            this.router.navigate(['/books']);
+          }
+        },
+
+        err => {
+          console.error("login fail: ", err);
+        }
+
+    );
   }
 
 }
