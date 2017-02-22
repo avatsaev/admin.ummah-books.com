@@ -6,14 +6,10 @@ export interface BookCover {
   thumb:string;
 }
 
-export class Book{
-
+export interface Book{
+  id:number;
   title:string;
   description:string;
-
-
-
-  constructor(data){
-
-  }
+  author: string;
+  is_paid:boolean;
 }

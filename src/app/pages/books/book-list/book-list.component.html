@@ -1,6 +1,6 @@
 <section class="content-header">
   <h1>
-    Book list
+    Book
     <small>Restricted area</small>
   </h1>
   <!--<ol class="breadcrumb">-->
@@ -18,11 +18,37 @@
 
 
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Books</h3>
-        </div>
+        <!--<div class="box-header with-border">-->
+          <!--<h3 class="box-title">Books</h3>-->
+        <!--</div>-->
         <!-- /.box-header -->
         <!-- form start -->
+
+        <table class="table table-hover">
+          <tbody><tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Is paid</th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let book of bookList$ | async">
+            <td>{{book.title}}</td>
+            <td>{{book.description}}</td>
+            <td>{{book.author}}</td>
+            <td><span class="label label-success">PAID</span></td>
+
+          </tr>
+
+          <td>
+
+          </td>
+
+
+
+          </tbody>
+        </table>
+
 
         <div class="box-body">
         </div>

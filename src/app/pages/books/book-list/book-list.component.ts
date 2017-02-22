@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Angular2TokenService} from "angular2-token";
+import {Observable} from "rxjs";
+import {Book} from "../../../models/book";
+import {BooksService} from "../../../services/books.service";
 
 @Component({
   selector: 'app-book-list',
@@ -7,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
 
-  constructor() { }
+
+  bookList$:Observable<Book[]>;
+
+  constructor(protected authTokenService:Angular2TokenService,
+              private booksService:BooksService) {
+
+    this.bookList$ = this.booksService.index();
+
+  }
 
   ngOnInit() {
   }

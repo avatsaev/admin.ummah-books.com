@@ -24,7 +24,7 @@ describe('Component: MessagesBox', () => {
       expect(component).toBeTruthy();
     }));
 
-  it('should create the component', inject([], () => {
+  it('should create_ the component', inject([], () => {
     return builder.createAsync(MessagesBoxComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(MessagesBoxComponent));

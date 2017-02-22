@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
-
+import { ReactiveFormsModule } from "@angular/forms";
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { AppRoutingModule } from "./app-routing.module";
 import {
@@ -28,6 +28,7 @@ let modules = [
     FormsModule,
     HttpModule,
     RouterModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
         deps: [Http],
         provide: TranslateLoader,
@@ -51,7 +52,6 @@ let widgets = [
     AppComponent,
     BreadcrumbComponent,
     AppHeaderComponent,
-
     MenuAsideComponent,
     ControlSidebarComponent,
     MessagesBoxComponent,
@@ -68,6 +68,7 @@ import { BreadcrumbService } from './services/breadcrumb.service';
 import { AdminLTETranslateService } from './services/translate.service';
 import { LoggerService } from './services/logger.service';
 import { Angular2TokenService } from 'angular2-token';
+import {BooksService} from "./services/books.service";
 
 let services = [
     UserService,
@@ -77,7 +78,8 @@ let services = [
     NotificationService,
     AdminLTETranslateService,
     LoggerService,
-    Angular2TokenService
+    Angular2TokenService,
+    BooksService
 ];
 
 import { HomeComponent } from './pages/home/home.component';
@@ -88,6 +90,7 @@ import {
     BookNewComponent,
     BookDetailsComponent,
     BookListComponent } from './pages/books/';
+
 
 
 

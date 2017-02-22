@@ -24,7 +24,7 @@ describe('Component: TasksBox', () => {
       expect(component).toBeTruthy();
     }));
 
-  it('should create the component', inject([], () => {
+  it('should create_ the component', inject([], () => {
     return builder.createAsync(TasksBoxComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(TasksBoxComponent));

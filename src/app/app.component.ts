@@ -56,11 +56,13 @@ export class AppComponent implements OnInit {
             'sublinks': [
               {
                 'title': 'List',
-                'link': ['books'],
+                'link': ['/books'],
+                'icon': 'list-ul',
               },
               {
-                'title': 'Add',
-                'link': ['books', 'new'],
+                'title': 'New',
+                'link': ['/books/new'],
+                'icon': 'plus',
               }
             ]
           }
