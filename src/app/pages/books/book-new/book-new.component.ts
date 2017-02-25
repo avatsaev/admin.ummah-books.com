@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Book} from "../../../models/book";
 
 
 @Component({
@@ -9,8 +10,12 @@ import {Component, OnInit, Input} from '@angular/core';
 
 export class BookNewComponent implements OnInit {
 
-
-  //@Input('book') book_id:number;
+  book = <Book>{
+    title: "",
+    description: "",
+    author: "",
+    is_paid: false
+  };
 
   constructor (){}
 

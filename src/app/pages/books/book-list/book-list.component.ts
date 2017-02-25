@@ -19,6 +19,7 @@ export class BookListComponent implements OnInit {
 
     this.bookList$ = this.booksService.index();
 
+
   }
 
   ngOnInit() {

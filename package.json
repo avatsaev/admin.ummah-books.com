@@ -26,20 +26,15 @@
     "angular2-toaster": "^1.0.2",
     "angular2-token": "^0.2.0-beta.8",
     "angular2-uuid": "^1.1.0",
-    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
-    "cookie-parser": "^1.4.3",
+    "ckeditor": "^4.6.2",
     "core-js": "^2.4.1",
-    "express": "^4.14.0",
-    "firebase": "^3.6.6",
     "font-awesome": "^4.7.0",
-    "ionicons": "^3.0.0",
     "jquery": "^3.1.1",
-    "morgan": "^1.8.1",
     "ng2-bootstrap": "^1.1.16",
+    "ng2-ckeditor": "^1.1.5",
     "ng2-translate": "^4.2.0",
     "rxjs": "^5.1.0",
-    "serve-favicon": "^2.3.2",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.6"
   },
@@ -60,6 +55,6 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
-    "typescript": "~2.0.0"
+    "typescript": "~2.1"
   }
 }

@@ -8,6 +8,8 @@ import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
 import { ReactiveFormsModule } from "@angular/forms";
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { AppRoutingModule } from "./app-routing.module";
+import { CKEditorModule } from 'ng2-ckeditor';
+
 import {
   TranslateModule,
   TranslateLoader,
@@ -29,6 +31,7 @@ let modules = [
     HttpModule,
     RouterModule,
     ReactiveFormsModule,
+    CKEditorModule,
     TranslateModule.forRoot({
         deps: [Http],
         provide: TranslateLoader,
@@ -79,7 +82,8 @@ let services = [
     AdminLTETranslateService,
     LoggerService,
     Angular2TokenService,
-    BooksService
+    BooksService,
+    ChaptersService
 ];
 
 import { HomeComponent } from './pages/home/home.component';
@@ -90,6 +94,7 @@ import {
     BookNewComponent,
     BookDetailsComponent,
     BookListComponent } from './pages/books/';
+import {ChaptersService} from "./services/chapters.service";
 
 
 

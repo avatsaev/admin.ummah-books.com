@@ -47,14 +47,20 @@
 
 
 
+
+
+
+
+
       <div class="form-group">
         <div class="checkbox">
           <label>
             <input
 
                     type="checkbox"
-
-
+                    formControlName="is_paid"
+                    class="form-control"
+                    name="books['is_paid']"
 
             >
 
@@ -67,6 +73,12 @@
 
 
     </div>
+
+
+
+
+
+
     <div class="box-footer">
       <button
               type="submit"
@@ -76,5 +88,19 @@
       </button>
     </div>
   </form>
+
+  <div class="form-group">
+
+    <!--<ckeditor [(ngModel)]="ckeditorContent"-->
+
+            <!--[config]="{}"-->
+            <!--(change)="onChange($event)"-->
+            <!--(ready)="onReady($event)"-->
+            <!--(focus)="onFocus($event)"-->
+            <!--(blur)="onBlur($event)"-->
+            <!--debounce="500">-->
+    <!--</ckeditor>-->
+  </div>
+
 </div>
 

@@ -13,6 +13,8 @@ import {Book} from "../../../models/book";
 export class BookFormComponent implements OnInit {
 
   form: FormGroup;
+  ckeditorContent:string;
+
   @Input('book') book:Book;
 
   constructor(fBuild: FormBuilder, private booksService:BooksService) {
@@ -20,22 +22,34 @@ export class BookFormComponent implements OnInit {
       "title":  ["", Validators.required],
       "description": ["", Validators.required],
       "author": ["", Validators.required],
-      "is_paid": [false],
+      "is_paid": [""],
     });
   }
 
   onFormSubmit(){
 
-    let book = Object.assign(<Book>{}, this.form.value);
-    this.booksService.create(book).subscribe(
-        res => {
-          console.log(res)
-        },
+    this.ckeditorContent = ``;
 
-        err => {
-          console.log(err)
-        }
-    );
+    let book:Book = Object.assign(<Book>{}, this.form.value);
+
+    if(this.book.id){
+
+
+
+    }else{
+
+      this.booksService.create(book).subscribe(
+          res => {
+            console.log(res)
+          },
+
+          err => {
+            console.log(err)
+          }
+      );
+
+    }
+
 
   }
 

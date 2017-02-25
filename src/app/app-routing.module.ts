@@ -50,16 +50,6 @@ const routes: Routes = [
 export class AppRoutingModule {
 
   constructor(private authService:Angular2TokenService){
-
     this.authService.init(environment.tokenAuthConfig);
-
-    if(!this.authService.userSignedIn()){
-
-      // this.authService.signIn({
-      //   email: 'root@example.com',
-      //   password: "monkey67"
-      // });
-
-    }
   }
 }
