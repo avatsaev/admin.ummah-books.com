@@ -9,8 +9,8 @@ import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-book-form',
-  templateUrl: './book-form.component.html',
-  styleUrls: ['./book-form.component.sass']
+  templateUrl: 'book-form.component.html',
+  styleUrls: ['book-form.component.sass']
 })
 
 export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
@@ -20,7 +20,7 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
   autoCompleteTags$: Observable<string[]>;
   subs:Subscription[] = [];
 
-  @Input() book:Book ={
+  @Input() book:Book = {
     id: undefined,
     title: "",
     description: "",
@@ -51,7 +51,7 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
     const tags = this.form.controls['tag_list'].value.map( tag => typeof tag == "string" ? tag : tag.value);
     Object.assign(this.book, this.form.value, {tag_list: tags});
 
-    if(this.book.id){
+    if(this.book.id){// if book has an id call update
       let s = this.booksService.update(this.book).subscribe(
           res => this.onBookUpdated.emit(<Book>{...res.json()}),
           err => this.onBookError.emit(err.json())
@@ -59,7 +59,7 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
 
       this.subs.push(s);
 
-    }else{
+    }else{ ///create a new book otherwise
 
       let s = this.booksService.create(this.book).subscribe(
           res => this.onBookCreated.emit(<Book>{...res.json()}),

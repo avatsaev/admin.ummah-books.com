@@ -11,11 +11,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { CKEditorModule } from 'ng2-ckeditor';
 import { TagInputModule } from 'ng2-tag-input';
 
-
 import {
   TranslateModule,
   TranslateLoader,
-  TranslateStaticLoader } from 'ng2-translate';
+  TranslateStaticLoader
+} from 'ng2-translate';
 
 export function createTranslateLoader( http: Http ) {
     return new TranslateStaticLoader(
@@ -24,6 +24,8 @@ export function createTranslateLoader( http: Http ) {
         '.json'
     );
 }
+
+///////////////////////////// MODULES ////////////////////////////////
 
 let modules = [
     AlertModule.forRoot(),
@@ -43,6 +45,9 @@ let modules = [
     TagInputModule,
     AppRoutingModule
 ];
+
+
+//////////////////////////// WIDGETS /////////////////////////////////////
 
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './widgets/app-header';
@@ -66,6 +71,9 @@ let widgets = [
     UserBoxComponent
 ];
 
+
+//////////////////////// SERVICES //////////////////////////////////////////
+
 import { UserService } from './services/user.service';
 import { MessagesService } from './services/messages.service';
 import { CanActivateGuard } from './services/guard.service';
@@ -74,7 +82,9 @@ import { BreadcrumbService } from './services/breadcrumb.service';
 import { AdminLTETranslateService } from './services/translate.service';
 import { LoggerService } from './services/logger.service';
 import { Angular2TokenService } from 'angular2-token';
-import {BooksService} from "./services/books.service";
+import { BooksService } from "./services/books.service";
+import { ChaptersService } from "./services/chapters.service";
+import { TagsService } from "./services/tags.service";
 
 let services = [
     UserService,
@@ -87,42 +97,60 @@ let services = [
     Angular2TokenService,
     BooksService,
     ChaptersService,
-    TagsService,
+    TagsService
 ];
+
+
+/////////////////////// PAGES /////////////////////////////////////
 
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import {
-    BookFormComponent,
-    BookEditComponent,
-    BookNewComponent,
-    BookDetailsComponent,
-    BookListComponent } from './pages/books/';
-import {ChaptersService} from "./services/chapters.service";
-import {TagsService} from "./services/tags.service";
-
-
-
+    BookEditViewComponent,
+    BookNewViewComponent,
+    BookListViewComponent,
+    BookDetailsViewComponent} from './pages/books/';
 
 
 let pages = [
-    HomeComponent,
-    BookListComponent,
-    BookDetailsComponent,
-    BookNewComponent,
-    BookEditComponent,
-    BookFormComponent,
-    LoginComponent,
+  HomeComponent,
+  BookListViewComponent,
+  BookDetailsViewComponent,
+  BookNewViewComponent,
+  BookEditViewComponent,
+  LoginComponent,
 ];
 
-// main bootstrap
+
+//////////////////////////// COMPONENTS //////////////////////////////////
+
+import {
+  BookDetailsComponent,
+  BookListComponent,
+  BookFormComponent
+} from "./components/books";
+
+import {
+  ChapterListComponent
+} from './components/chapters';
 
 
-@NgModule( {
+
+let components = [
+  BookDetailsComponent,
+  BookListComponent,
+  BookFormComponent,
+  ChapterListComponent
+];
+
+///////////////////////////////////////////////////////////////////////////
+
+@NgModule({
     bootstrap: [AppComponent],
     declarations: [
         ...widgets,
-        ...pages
+        ...pages,
+        ...components
     ],
     imports: [
         ...modules

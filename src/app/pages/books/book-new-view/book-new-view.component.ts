@@ -5,11 +5,11 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-book-new',
-  templateUrl: './book-new.component.html',
-  styleUrls: ['./book-new.component.sass']
+  templateUrl: 'book-new-view.component.html',
+  styleUrls: ['book-new-view.component.sass']
 })
 
-export class BookNewComponent implements OnInit {
+export class BookNewViewComponent implements OnInit {
 
   newBook:Book = {
     title: "",
@@ -25,8 +25,7 @@ export class BookNewComponent implements OnInit {
 
 
   onBookCreated(book){
-    if(book.id) this.router.navigate(['books']);
-
+    if(book.id) this.router.navigate(['/books', book.id]);
   }
 
 

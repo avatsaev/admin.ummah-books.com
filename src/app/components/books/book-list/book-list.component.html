@@ -1,0 +1,50 @@
+<table class="table table-hover">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th>Tags</th>
+      <th>Is paid</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+
+    <tr style="cursor: pointer"  *ngFor="let book of books">
+      <td>{{book.id}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.description}}</td>
+      <td>{{book.author}}</td>
+      <td> <span style="margin: 0 1px" class="badge bg-blue" *ngFor="let tag of book.tag_list">{{tag.name}}</span> </td>
+      <td><span class="label label-success">PAID</span></td>
+
+      <td>
+        <button [routerLink]="['/books', book.id]" class="btn btn-success btn-xs">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          SHOW
+        </button>
+        <button [routerLink]="['/books', book.id, 'edit']" class="btn btn-primary btn-xs">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          EDIT
+        </button>
+        <button (click)="removeBook(book)" class="btn btn-danger btn-xs">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          DELETE
+        </button>
+
+      </td>
+
+    </tr>
+
+
+
+
+
+  </tbody>
+</table>

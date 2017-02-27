@@ -6,38 +6,39 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 
 import {Angular2TokenService} from "angular2-token";
-import {BookListComponent} from "./pages/books/book-list/book-list.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {environment} from "../environments/environment";
-import {BookNewComponent} from "./pages/books/book-new/book-new.component";
-import {BookDetailsComponent} from "./pages/books/book-details/book-details.component";
-import {BookEditComponent} from "./pages/books/book-edit/book-edit.component";
+import {
+  BookNewViewComponent,
+  BookEditViewComponent,
+  BookListViewComponent,
+  BookDetailsViewComponent
+} from "./pages/books";
 
 
 const routes: Routes = [
-  // Root
   {
     component: HomeComponent,
     path: '',
     canActivate: [Angular2TokenService]
   },
   {
-    component: BookListComponent,
+    component: BookListViewComponent,
     path: 'books',
     canActivate: [Angular2TokenService]
   },
   {
-    component: BookNewComponent,
+    component: BookNewViewComponent,
     path: 'books/new',
     canActivate: [Angular2TokenService]
   },
   {
-    component: BookDetailsComponent,
+    component: BookDetailsViewComponent,
     path: 'books/:id',
     canActivate: [Angular2TokenService]
   },
   {
-    component: BookEditComponent,
+    component: BookEditViewComponent,
     path: 'books/:id/edit',
     canActivate: [Angular2TokenService]
   },
@@ -46,6 +47,7 @@ const routes: Routes = [
     component: LoginComponent
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

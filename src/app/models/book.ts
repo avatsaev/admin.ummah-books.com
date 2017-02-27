@@ -14,5 +14,5 @@ export interface Book{
   author: string;
   is_paid:boolean;
   tag_list?: string[];
-  chapters?: Chapter[] | number[];
+  chapters?: Chapter[];
 }

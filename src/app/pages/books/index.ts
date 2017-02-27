@@ -1,8 +1,9 @@
 
 
 
-export {BookDetailsComponent} from "./book-details/book-details.component";
-export {BookEditComponent} from "./book-edit/book-edit.component";
-export {BookFormComponent} from "./book-form/book-form.component";
-export {BookListComponent} from "./book-list/book-list.component";
-export {BookNewComponent} from "./book-new/book-new.component";
+export {BookDetailsViewComponent} from "./book-details-view/book-details-view.component";
+export {BookEditViewComponent} from "./book-edit-view/book-edit-view.component";
+export {BookFormComponent} from "../../components/books/book-form/book-form.component";
+export {BookListViewComponent} from "./book-list-view/book-list-view.component";
+export {BookNewViewComponent} from "./book-new-view/book-new-view.component";
+

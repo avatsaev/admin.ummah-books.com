@@ -1,0 +1,1 @@
+export {ChapterListComponent} from "./chapter-list/chapter-list.component";

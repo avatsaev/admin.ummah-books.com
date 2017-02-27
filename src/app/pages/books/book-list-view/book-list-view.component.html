@@ -14,24 +14,16 @@
 
   <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-12">
 
 
       <div class="box box-primary">
 
-        <div class="box-header">
-          <h3 class="box-title">{{bookID$ | async}} - {{ book$.title }} </h3>
-          <h5></h5>
+        <div *ngIf="books$.length | async" class="overlay">
+          <i class="fa fa-refresh fa-spin"></i>
         </div>
 
-        <div class="box-body">
-
-        </div>
-
-        <div class="box-footer align right">
-          <button class="btn btn-primary " [routerLink]="['/books',(bookID$ | async), 'edit']"> EDIT</button>
-          <button class="btn btn-danger "> DELETE</button>
-        </div>
+        <app-book-list [books]="books$ | async"></app-book-list>
 
       </div>
 
