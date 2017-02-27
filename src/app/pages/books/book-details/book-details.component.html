@@ -29,7 +29,7 @@
         </div>
 
         <div class="box-footer align right">
-          <button class="btn btn-primary "> EDIT</button>
+          <button class="btn btn-primary " [routerLink]="['/books',(bookID$ | async), 'edit']"> EDIT</button>
           <button class="btn btn-danger "> DELETE</button>
         </div>
 

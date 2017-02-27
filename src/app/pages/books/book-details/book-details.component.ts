@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router'
 import {BooksService} from "../../../services/books.service";
 import {Book} from "../../../models/book";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.sass']
 })
-export class BookDetailsComponent implements OnInit {
+export class BookDetailsComponent implements OnInit, OnDestroy {
 
 
   bookID$:Observable<number>;
   book$:Observable<Book>;
+  subs:Subscription[] = [];
 
   constructor(private activatedRoute:ActivatedRoute, private booksService:BooksService) { }
 
@@ -27,5 +28,11 @@ export class BookDetailsComponent implements OnInit {
     });
 
   }
+
+  ngOnDestroy(){
+    for(let s of this.subs) s.unsubscribe();
+  }
+
+
 
 }

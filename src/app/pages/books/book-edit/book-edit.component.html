@@ -1,3 +1,29 @@
-<p>
-  book-edit works!
-</p>
+<section class="content-header">
+  <h1>
+    Books
+
+  </h1>
+  <!--<ol class="breadcrumb">-->
+  <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+  <!--<li><a href="#">Forms</a></li>-->
+  <!--<li class="active">General Elements</li>-->
+  <!--</ol>-->
+</section>
+
+<section class="content">
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <app-book-form
+              [book]="(book$ | async)"
+              (onBookUpdated)="onBookUpdated($event)"
+              (onBookError)="onBookError($event)"
+      ></app-book-form>
+
+    </div>
+
+  </div>
+
+</section>

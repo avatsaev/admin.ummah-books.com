@@ -11,6 +11,7 @@ import {LoginComponent} from "./pages/login/login.component";
 import {environment} from "../environments/environment";
 import {BookNewComponent} from "./pages/books/book-new/book-new.component";
 import {BookDetailsComponent} from "./pages/books/book-details/book-details.component";
+import {BookEditComponent} from "./pages/books/book-edit/book-edit.component";
 
 
 const routes: Routes = [
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     component: BookDetailsComponent,
     path: 'books/:id',
+    canActivate: [Angular2TokenService]
+  },
+  {
+    component: BookEditComponent,
+    path: 'books/:id/edit',
     canActivate: [Angular2TokenService]
   },
   {

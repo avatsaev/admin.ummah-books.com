@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { AppRoutingModule } from "./app-routing.module";
 import { CKEditorModule } from 'ng2-ckeditor';
+import { TagInputModule } from 'ng2-tag-input';
+
 
 import {
   TranslateModule,
@@ -38,6 +40,7 @@ let modules = [
         useFactory: (createTranslateLoader)
     }),
     ToasterModule,
+    TagInputModule,
     AppRoutingModule
 ];
 
@@ -83,7 +86,8 @@ let services = [
     LoggerService,
     Angular2TokenService,
     BooksService,
-    ChaptersService
+    ChaptersService,
+    TagsService,
 ];
 
 import { HomeComponent } from './pages/home/home.component';
@@ -95,6 +99,7 @@ import {
     BookDetailsComponent,
     BookListComponent } from './pages/books/';
 import {ChaptersService} from "./services/chapters.service";
+import {TagsService} from "./services/tags.service";
 
 
 

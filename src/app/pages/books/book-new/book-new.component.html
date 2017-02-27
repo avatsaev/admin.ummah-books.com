@@ -16,11 +16,10 @@
 
     <div class="col-md-12">
 
-      <app-book-form [book]="book" >
-
-      </app-book-form>
+      <app-book-form [book]="newBook" (onBookCreated)="onBookCreated($event)" ></app-book-form>
 
     </div>
+
 
   </div>
 

@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Book} from "../../../models/book";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -10,16 +11,26 @@ import {Book} from "../../../models/book";
 
 export class BookNewComponent implements OnInit {
 
-  book = <Book>{
+  newBook:Book = {
     title: "",
     description: "",
     author: "",
-    is_paid: false
+    is_paid: false,
+    chapters: [],
+    tag_list: []
   };
 
-  constructor (){}
+  constructor (private router:Router){
+  }
 
 
-  ngOnInit() {}
+  onBookCreated(book){
+    if(book.id) this.router.navigate(['books']);
+
+  }
+
+
+  ngOnInit() {
+  }
 
 }
