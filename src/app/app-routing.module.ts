@@ -14,6 +14,9 @@ import {
   BookListViewComponent,
   BookDetailsViewComponent
 } from "./pages/books";
+import {ChapterNewViewComponent} from "./pages/chapters/chapter-new-view/chapter-new-view.component";
+import {ChapterEditViewComponent} from "./pages/chapters/chapter-edit-view/chapter-edit-view.component";
+import {ChapterDetailsViewComponent} from "./pages/chapters/chapter-details-view/chapter-details-view.component";
 
 
 const routes: Routes = [
@@ -22,6 +25,9 @@ const routes: Routes = [
     path: '',
     canActivate: [Angular2TokenService]
   },
+
+    ////////// BOOKS ///////////////
+
   {
     component: BookListViewComponent,
     path: 'books',
@@ -42,6 +48,27 @@ const routes: Routes = [
     path: 'books/:id/edit',
     canActivate: [Angular2TokenService]
   },
+
+    /////////// CHAPTERS ///////////////////
+
+  {
+    component: ChapterNewViewComponent,
+    path: 'books/:book_id/chapters/new',
+    canActivate: [Angular2TokenService]
+  },
+  {
+    component: ChapterEditViewComponent,
+    path: 'books/:book_id/chapters/:id/edit',
+    canActivate: [Angular2TokenService]
+  },
+  {
+    component: ChapterDetailsViewComponent,
+    path: 'books/:book_id/chapters/:id',
+    canActivate: [Angular2TokenService]
+  },
+
+   ////////////////////////////////////////
+
   {
     path: 'login',
     component: LoginComponent

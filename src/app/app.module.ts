@@ -109,16 +109,26 @@ import {
     BookEditViewComponent,
     BookNewViewComponent,
     BookListViewComponent,
-    BookDetailsViewComponent} from './pages/books/';
+    BookDetailsViewComponent} from './pages/books';
+import {
+    ChapterNewViewComponent,
+    ChapterDetailsViewComponent,
+    ChapterEditViewComponent} from './pages/chapters';
 
 
 let pages = [
   HomeComponent,
+
   BookListViewComponent,
   BookDetailsViewComponent,
   BookNewViewComponent,
   BookEditViewComponent,
+
   LoginComponent,
+
+  ChapterNewViewComponent,
+  ChapterDetailsViewComponent,
+  ChapterEditViewComponent,
 ];
 
 
@@ -131,16 +141,18 @@ import {
 } from "./components/books";
 
 import {
-  ChapterListComponent
+  ChapterListComponent,
+  ChapterFormComponent
 } from './components/chapters';
-
 
 
 let components = [
   BookDetailsComponent,
   BookListComponent,
   BookFormComponent,
-  ChapterListComponent
+
+  ChapterListComponent,
+  ChapterFormComponent
 ];
 
 ///////////////////////////////////////////////////////////////////////////
@@ -150,7 +162,7 @@ let components = [
     declarations: [
         ...widgets,
         ...pages,
-        ...components
+        ...components,
     ],
     imports: [
         ...modules

@@ -44,12 +44,12 @@
 
     <td>
 
-      <button [routerLink]="['/chapters', chapter.id]" class="btn btn-success btn-xs">
+      <button [routerLink]="['/books', chapter.book_id, 'chapters', chapter.id]" class="btn btn-success btn-xs">
         <i class="fa fa-bars" aria-hidden="true"></i>
         SHOW
       </button>
 
-      <button [routerLink]="['/chapters', chapter.id, 'edit']" class="btn btn-primary btn-xs">
+      <button [routerLink]="['/books', chapter.book_id, 'chapters', chapter.id, 'edit']" class="btn btn-primary btn-xs">
         <i class="fa fa-pencil" aria-hidden="true"></i>
         EDIT
       </button>

@@ -40,7 +40,7 @@ export class ChaptersService {
     let bookID:number = (typeof book === "number") ?  book : book.id;
 
     return this.authTokenService.post(
-        `/books/${bookID}/chapter`,
+        `/books/${bookID}/chapters`,
         {chapter}
     );
 
@@ -53,19 +53,29 @@ export class ChaptersService {
     return this.authTokenService.put(`/books/${bookID}`, {chapter});
   }
 
-  show(book: Book | number, chapter: Chapter | number):Observable<Chapter>{
+  show(book: number, chapter: number, params:string = ""):Observable<Chapter>{
 
-    let bookID:number = (typeof book === "number") ?  book : book.id;
-    let chapterID:number = (typeof chapter === "number") ?  chapter : chapter.id;
+    // let bookID:number = (typeof book === "number")  ?  book : book.id;
+    // let chapterID:number = (typeof chapter === "number") ?  chapter : chapter.id;
+
+    // console.log(bookID)
+    // console.log(chapterID)
 
     const chapter$:Observable<Chapter> = Observable.create (
         observer => {
 
           this.authTokenService.get(
-              `/books/${bookID}/chapters/${chapterID}`
+              `/books/${book}/chapters/${chapter}`,
+              {search: params}
           ).subscribe(
               res => {
-                observer.next(Object.assign(<Chapter>{}, res.json()));
+
+                let chapter = res.json();
+                observer.next(<Chapter>{
+                  ...chapter,
+                  tag_list: chapter.tag_list.map(t => t.name)
+                });
+
               }
           );
         }
