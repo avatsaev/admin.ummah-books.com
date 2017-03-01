@@ -144,13 +144,14 @@ import {
   ChapterListComponent,
   ChapterFormComponent
 } from './components/chapters';
+import { ChapterDetailsComponent } from './components/chapters/chapter-details/chapter-details.component';
 
 
 let components = [
   BookDetailsComponent,
   BookListComponent,
   BookFormComponent,
-
+  ChapterDetailsComponent,
   ChapterListComponent,
   ChapterFormComponent
 ];

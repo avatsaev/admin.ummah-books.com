@@ -23,7 +23,7 @@ export class BookDetailsComponent implements OnInit {
   constructor(private router: Router, private booksService:BooksService) { }
 
   ngOnInit() {
-    console.log(this.book)
+
   }
 
   removeBook(){

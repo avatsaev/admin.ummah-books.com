@@ -32,8 +32,8 @@ export class ChapterEditViewComponent implements OnInit {
     );
   }
 
-  onBookUpdated(b:Book){
-    this.router.navigate(['/books', b.id])
+  onChapterUpdated(c:Chapter){
+    this.router.navigate(['/books', c.book_id, 'chapters', c.id])
   }
 
   onBookError(err){

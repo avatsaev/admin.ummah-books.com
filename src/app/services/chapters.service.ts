@@ -50,7 +50,9 @@ export class ChaptersService {
 
     const bookID = chapter.book_id;
 
-    return this.authTokenService.put(`/books/${bookID}`, {chapter});
+    delete chapter.book;
+
+    return this.authTokenService.put(`/books/${bookID}/chapters/${chapter.id}`, {chapter});
   }
 
   show(book: number, chapter: number, params:string = ""):Observable<Chapter>{

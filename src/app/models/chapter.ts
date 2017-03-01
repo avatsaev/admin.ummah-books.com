@@ -1,3 +1,4 @@
+import {Book} from "./book";
 export interface Chapter{
   id:number;
   book_id:number;
@@ -5,4 +6,5 @@ export interface Chapter{
   is_paid:boolean;
   contents:string;
   tag_list?:string[];
+  book?:Book;
 }

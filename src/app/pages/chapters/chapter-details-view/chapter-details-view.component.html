@@ -1,3 +1,24 @@
-<p>
-  chapter-details-view works!
-</p>
+<section class="content-header">
+  <h1>
+    Chapter
+    <small>Restricted area</small>
+  </h1>
+  <!--<ol class="breadcrumb">-->
+  <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+  <!--<li><a href="#">Forms</a></li>-->
+  <!--<li class="active">General Elements</li>-->
+  <!--</ol>-->
+</section>
+
+<section class="content">
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <app-chapter-details [chapter]="chapter$ | async" ></app-chapter-details>
+    </div>
+
+
+  </div>
+
+</section>

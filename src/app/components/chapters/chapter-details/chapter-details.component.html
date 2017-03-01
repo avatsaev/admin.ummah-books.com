@@ -1,0 +1,25 @@
+<div class="box box-solid" *ngIf="chapter">
+
+  <div class="box-header with-border">
+    <i class="fa fa-book"></i>
+    <h3 class="box-title"> {{ chapter.title}}</h3>
+  </div>
+
+  <div class="box-body">
+
+    <div [innerHTML]="chapter.contents"></div>
+
+    <div>
+      <label>Tags: </label>
+      <span *ngFor="let tag of chapter.tag_list" class="badge bg-blue">{{tag}}</span>
+    </div>
+
+  </div>
+
+  <div class="box-footer align right">
+    <button class="btn btn-primary "
+            [routerLink]="['/books', chapter.book_id, 'chapters', chapter.id, 'edit']">EDIT</button>
+    <button class="btn btn-danger" (click)="removeChapter()"> DELETE </button>
+  </div>
+
+</div>
