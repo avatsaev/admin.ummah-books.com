@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from "../../../models/book";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {Router, ActivatedRoute} from "@angular/router";
 import {BooksService} from "../../../services/books.service";
 import {ChaptersService} from "../../../services/chapters.service";
@@ -15,6 +15,8 @@ export class ChapterEditViewComponent implements OnInit {
 
   chapter$:Observable<Chapter>;
 
+  subs:Subscription[] = []
+
   constructor(
       private router:Router,
       private booksService:BooksService,
@@ -23,13 +25,15 @@ export class ChapterEditViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activeRoute.params.subscribe(
+    let s = this.activeRoute.params.subscribe(
         params => {
           console.log(params);
           this.chapter$ = this.chaptersService.show(params['book_id'], params['id'], "tags=true&book=true");
           this.chapter$.subscribe(console.log);
         }
     );
+
+    this.subs.push(s);
   }
 
   onChapterUpdated(c:Chapter){

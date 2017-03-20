@@ -1,10 +1,10 @@
 import {Book} from "./book";
 export interface Chapter{
-  id:number;
+  readonly id:string;
   book_id:number;
   title:string;
   is_paid:boolean;
   contents:string;
-  tag_list?:string[];
+  chapter_tag_list?:string[];
   book?:Book;
 }

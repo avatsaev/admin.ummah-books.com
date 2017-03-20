@@ -7,8 +7,12 @@ export class TagsService {
 
   constructor(private authTokenService:Angular2TokenService) {}
 
-  mostUsed(limit:number = 10){
-    return this.authTokenService.get(`/tags/most_used?limit=${limit}`);
+  mostUsedForBooks(limit:number = 10){
+    return this.authTokenService.get(`/tags/most_used_for_books?limit=${limit}`).map(res => res.json());
+  }
+
+  mostUsedForChapters(limit:number = 10){
+    return this.authTokenService.get(`/tags/most_used_for_chapters?limit=${limit}`).map(res => res.json());
   }
 
 }

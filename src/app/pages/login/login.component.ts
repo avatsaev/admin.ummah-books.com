@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router'
 import {Angular2TokenService} from "angular2-token";
 import {NgForm} from "@angular/forms";
+import {NotificationService} from "../../services/notification.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
       protected authService:Angular2TokenService,
-      protected router:Router) {}
+      protected router:Router,
+      protected notifications:NotificationService
+  ) {}
 
   ngOnInit() {
     if(this.authService.userSignedIn()) this.router.navigate(['/books'])
@@ -36,7 +39,8 @@ export class LoginComponent implements OnInit {
         },
 
         err => {
-          console.error("login fail: ", err);
+          // alert(err.json().errors)
+          this.notifications.error(err.json().errors, "Login error")
         }
 
     );

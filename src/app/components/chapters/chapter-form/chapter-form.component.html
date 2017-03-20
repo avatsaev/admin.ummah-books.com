@@ -24,6 +24,13 @@
         >
       </div>
 
+      <div class="checkbox form-group">
+        <label>
+          is a paid chapter:
+          <input  type="checkbox" formControlName="is_paid">
+        </label>
+      </div>
+
 
       <div class="form-group">
         <label>Contents: </label>
@@ -43,7 +50,7 @@
         <tag-input
                 [separatorKeys]="[188, 13]"
                 [blinkIfDupe]="true"
-                formControlName="tag_list"
+                formControlName="chapter_tag_list"
         >
 
           <tag-input-dropdown

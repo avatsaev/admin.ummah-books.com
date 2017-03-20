@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import {BooksService} from "../../../services/books.service";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {Book} from "../../../models/book";
 
 
@@ -10,9 +10,10 @@ import {Book} from "../../../models/book";
   templateUrl: 'book-edit-view.component.html',
   styleUrls: ['book-edit-view.component.sass']
 })
-export class BookEditViewComponent implements OnInit {
+export class BookEditViewComponent implements OnInit, OnDestroy {
 
   book$:Observable<Book>;
+  subs:Subscription[] = [];
 
   constructor(
       private router:Router,
@@ -20,9 +21,14 @@ export class BookEditViewComponent implements OnInit {
       private activeRoute:ActivatedRoute) { }
 
   ngOnInit() {
-    this.activeRoute.params.subscribe(
+    let s = this.activeRoute.params.subscribe(
         params => this.book$ = this.booksService.show(params['id'], "tags=true")
     );
+    this.subs.push(s);
+  }
+
+  ngOnDestroy(){
+    this.subs.map(s => s.unsubscribe());
   }
 
   onBookUpdated(b:Book){

@@ -35,7 +35,7 @@ export class BookListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    for(let s of this.subs) s.unsubscribe();
+    this.subs.map(s => s.unsubscribe());
   }
 
 }

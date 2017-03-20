@@ -11,9 +11,9 @@ export class ChaptersService {
 
   constructor(private authTokenService:Angular2TokenService) {}
 
-  index(book:Book | number):Observable<Chapter[]>{
+  index(book:Book | string):Observable<Chapter[]>{
 
-    let bookID:number = (typeof book === "number") ?  book : book.id;
+    let bookID = (typeof book === "string") ?  book : book.id;
 
     let chapters$ = Observable.create(
 
@@ -35,9 +35,9 @@ export class ChaptersService {
 
   }
 
-  create(book:Book | number, chapter:Chapter):Observable<Response>{
+  create(book:Book | string, chapter:Chapter):Observable<Response>{
 
-    let bookID:number = (typeof book === "number") ?  book : book.id;
+    let bookID = (typeof book === "string") ?  book : book.id;
 
     return this.authTokenService.post(
         `/books/${bookID}/chapters`,
@@ -55,7 +55,7 @@ export class ChaptersService {
     return this.authTokenService.put(`/books/${bookID}/chapters/${chapter.id}`, {chapter});
   }
 
-  show(book: number, chapter: number, params:string = ""):Observable<Chapter>{
+  show(book_id: string, chapter_id: string, params:string = ""):Observable<Chapter>{
 
     // let bookID:number = (typeof book === "number")  ?  book : book.id;
     // let chapterID:number = (typeof chapter === "number") ?  chapter : chapter.id;
@@ -63,27 +63,11 @@ export class ChaptersService {
     // console.log(bookID)
     // console.log(chapterID)
 
-    const chapter$:Observable<Chapter> = Observable.create (
-        observer => {
 
-          this.authTokenService.get(
-              `/books/${book}/chapters/${chapter}`,
-              {search: params}
-          ).subscribe(
-              res => {
-
-                let chapter = res.json();
-                observer.next(<Chapter>{
-                  ...chapter,
-                  tag_list: chapter.tag_list.map(t => t.name)
-                });
-
-              }
-          );
-        }
-    );
-
-    return chapter$;
+    return this.authTokenService.get(
+        `/books/${book_id}/chapters/${chapter_id}`,
+        {search: params}
+    ).map(res => res.json());
 
   }
 

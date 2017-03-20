@@ -25,9 +25,9 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
     title: "",
     description: "",
     author: "",
-    is_paid: false,
+    is_paid: true,
     chapters: [],
-    tag_list: []
+    book_tag_list: []
   };
 
   @Output() onBookCreated = new EventEmitter<Book>();
@@ -41,19 +41,19 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
       "description": [this.book.description, Validators.required],
       "author": [this.book.author, Validators.required],
       "is_paid": [this.book.is_paid],
-      "tag_list": [this.book.tag_list]
+      "book_tag_list": [this.book.book_tag_list]
     });
 
   }
 
   onFormSubmit(){
 
-    const tags = this.form.controls['tag_list'].value.map( tag => typeof tag == "string" ? tag : tag.value);
-    Object.assign(this.book, this.form.value, {tag_list: tags});
+    const tags = this.form.controls['book_tag_list'].value.map( tag => typeof tag == "string" ? tag : tag.value);
+    Object.assign(this.book, this.form.value, {book_tag_list: tags});
 
     if(this.book.id){// if book has an id call update
       let s = this.booksService.update(this.book).subscribe(
-          res => this.onBookUpdated.emit(<Book>{...res.json()}),
+          res => this.onBookUpdated.emit(<Book>{...res}),
           err => this.onBookError.emit(err.json())
       );
 
@@ -62,7 +62,7 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
     }else{ ///create a new book otherwise
 
       let s = this.booksService.create(this.book).subscribe(
-          res => this.onBookCreated.emit(<Book>{...res.json()}),
+          res => this.onBookCreated.emit(<Book>{...res}),
           err => this.onBookError.emit(err)
       );
 
@@ -80,11 +80,11 @@ export class BookFormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    this.autoCompleteTags$ = this.tagsService.mostUsed().map( res => res.json().map( tag => tag.name));
+    this.autoCompleteTags$ = this.tagsService.mostUsedForBooks().map(tag => tag.name);
   }
 
   ngOnDestroy(){
-    for(let s of this.subs) s.unsubscribe();
+    this.subs.map(s => s.unsubscribe());
   }
 
 

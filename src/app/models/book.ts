@@ -8,11 +8,13 @@ import {Chapter} from "./chapter";
 // }
 
 export interface Book{
-  readonly id?:number;
+  readonly id?:string;
   title:string;
   description:string;
   author: string;
+  slug?: string,
   is_paid:boolean;
-  tag_list?: string[];
+  book_tag_list?: string[];
   chapters?: Chapter[];
+
 }

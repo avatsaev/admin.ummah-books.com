@@ -7,12 +7,16 @@
 
   <div class="box-body">
 
-    <div [innerHTML]="chapter.contents"></div>
-
+    <!--<div [innerHTML]="chapter.contents"></div>-->
     <div>
       <label>Tags: </label>
-      <span *ngFor="let tag of chapter.tag_list" class="badge bg-blue">{{tag}}</span>
+      <span *ngFor="let tag of chapter.chapter_tag_list" class="badge bg-blue">{{tag}}</span>
     </div>
+
+    <ckeditor [value]="chapter.contents" [config]="{readOnly: true}">
+    </ckeditor>
+
+
 
   </div>
 

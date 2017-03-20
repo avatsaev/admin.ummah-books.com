@@ -15,9 +15,9 @@ export class BookNewViewComponent implements OnInit {
     title: "",
     description: "",
     author: "",
-    is_paid: false,
+    is_paid: true,
     chapters: [],
-    tag_list: []
+    book_tag_list: []
   };
 
   constructor (private router:Router){

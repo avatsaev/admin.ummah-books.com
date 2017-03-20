@@ -24,7 +24,6 @@ export class MessagesBoxComponent implements OnInit {
     public ngOnInit() {
         // Every incoming message changes entire local message Array.
         this.msgServ.messages.subscribe(( msg: Message[] ) => {
-            this.logger.log( 'MsgBox', null, 'RECIEVED.MESSAGE', null );
             this.messages = msg;
             this.msgLength = { 0: this.messages.length };
         });

@@ -13,14 +13,13 @@ import {Chapter} from "../../../models/chapter";
 export class BookDetailsViewComponent implements OnInit, OnDestroy {
 
 
-  bookID:number;
+  bookID:string;
   book$:Observable<Book>;
   chapters$ = new Subject<Chapter[]>();
   subs:Subscription[] = [];
 
 
   constructor(private activatedRoute:ActivatedRoute, private booksService:BooksService) {
-
 
   }
 
@@ -36,7 +35,7 @@ export class BookDetailsViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    for(let s of this.subs) s.unsubscribe();
+    this.subs.map(s => s.unsubscribe());
   }
 
 }

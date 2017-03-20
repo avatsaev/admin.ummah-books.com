@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@angular/cli@1.0.0-rc.0":
-  version "1.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.0.0-rc.0.tgz#dcf9e1d1f4ed886ca59de30a67fcc5ac98a2b061"
+"@angular/cli@1.0.0-rc.2":
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.0.0-rc.2.tgz#ca8b248ede5aaac8ca4a3d165745e93479564a4a"
   dependencies:
     "@angular/compiler" ">=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@angular/compiler-cli" ">=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@angular/core" ">=2.3.1 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@angular/tsc-wrapped" ">=0.5.0 <5.0.0 || >=4.0.0-beta <5.0.0"
     "@ngtools/json-schema" "1.0.5"
-    "@ngtools/webpack" "1.2.11"
+    "@ngtools/webpack" "1.2.13"
     autoprefixer "^6.5.3"
     chalk "^1.1.3"
     common-tags "^1.3.1"
@@ -119,12 +119,12 @@
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.0.5.tgz#ad39037c70c88b245ac7267a71777646b6063d77"
 
-"@ngtools/webpack@1.2.11":
-  version "1.2.11"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.2.11.tgz#b587b1e7eb88bd68b973681669c00e7b4b7f8ea0"
+"@ngtools/webpack@1.2.13":
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.2.13.tgz#543237cd6ef49b59140114a5c0e8757b15d6e133"
   dependencies:
     enhanced-resolve "^3.1.0"
-    loader-utils "^0.2.16"
+    loader-utils "^1.0.2"
     magic-string "^0.19.0"
     source-map "^0.5.6"
 
@@ -3051,9 +3051,9 @@ ng2-material-dropdown@0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.7.3.tgz#4993e8c3598a6bdf4c3ef13b79b1923c90c65787"
 
-ng2-tag-input@^0.8.7:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/ng2-tag-input/-/ng2-tag-input-0.8.7.tgz#8871932de20919bcb94586f92584498fcc5b6cd9"
+ng2-tag-input@^0.8.8:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/ng2-tag-input/-/ng2-tag-input-0.8.8.tgz#32bce763a1118da3820f0a2d49841a3c5a049bb6"
   dependencies:
     ng2-material-dropdown "0.7.3"
 

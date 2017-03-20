@@ -12,15 +12,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ChapterDetailsViewComponent implements OnInit {
 
 
-  chapterID:number;
-  bookID:number
+  chapterID:string;
+  bookID:string;
   chapter$:Observable<Chapter>;
   subs:Subscription[] = [];
 
 
   constructor(private activatedRoute:ActivatedRoute, private chaptersService:ChaptersService) {
-
-
   }
 
   ngOnInit() {
@@ -35,7 +33,7 @@ export class ChapterDetailsViewComponent implements OnInit {
   }
 
   ngOnDestroy(){
-    for(let s of this.subs) s.unsubscribe();
+    this.subs.map(s => s.unsubscribe());
   }
 
 }
