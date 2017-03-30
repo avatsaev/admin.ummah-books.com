@@ -1,8 +1,8 @@
+
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "version": "1.0.0-rc.0",
-    "name": "admin.ummah-books.com.ng"
+    "name": "ummah-books.admin"
   },
   "apps": [
     {
@@ -10,14 +10,14 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "public",
         "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
         "styles.less",
@@ -44,12 +44,13 @@
   },
   "lint": [
     {
-      "files": "src/**/*.ts",
-      "project": "src/tsconfig.json"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "files": "e2e/**/*.ts",
-      "project": "e2e/tsconfig.json"
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -62,3 +63,4 @@
     "component": {}
   }
 }
+

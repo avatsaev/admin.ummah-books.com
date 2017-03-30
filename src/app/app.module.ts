@@ -32,6 +32,7 @@ let modules = [
     DatepickerModule.forRoot(),
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpModule,
     RouterModule,
     ReactiveFormsModule,
@@ -121,9 +122,7 @@ let pages = [
   BookDetailsViewComponent,
   BookNewViewComponent,
   BookEditViewComponent,
-
   LoginComponent,
-
   ChapterNewViewComponent,
   ChapterDetailsViewComponent,
   ChapterEditViewComponent,
@@ -143,6 +142,7 @@ import {
   ChapterFormComponent
 } from './components/chapters';
 import { ChapterDetailsComponent } from './components/chapters/chapter-details/chapter-details.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 let components = [

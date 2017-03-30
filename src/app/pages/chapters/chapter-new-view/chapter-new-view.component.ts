@@ -35,8 +35,8 @@ export class ChapterNewViewComponent implements OnInit, OnDestroy {
   }
 
 
-  onChapterCreated(chapter){
-    if(chapter.id) this.router.navigate(['/books', this.book$.map(b => b.id)]);
+  onChapterCreated(c:Chapter){
+    if(c.id) this.router.navigate(['/books', c.book_id, 'chapters', c.id]);
   }
 
 
